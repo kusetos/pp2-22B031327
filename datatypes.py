@@ -1,0 +1,15 @@
+string = "IM issatay"
+integer = 123 #int
+float_num = 12.3
+complex_num = 2j
+lists = ["ashaaat", "bekeeet", "ISATAAAAAYY"]
+tuples = ("ashaaat", "bekeeet", "ISATAAAAAYY")
+ranges = range(321)
+dicts = {"ME" : "big", "baha" : "small"}
+sets = {"me", "my friend", "other"}
+frozensets = frozenset({"me", "my friend", "other"})
+bools = True
+bytess = b"assa"
+bytearrays = bytearray(28)
+memoryview_ = memoryview(bytes(10))
+nothing = None
