@@ -1,2 +1,1 @@
-"# pp2-22B031327" 
-"# pp2-22B031327" 
+This is the Hello World example from the git tutorial.
