@@ -88,3 +88,21 @@ anu = Account("aNuar", 2000)
 anu.deposit(500)
 anu.show()
 anu.withdraw(700)
+
+### 6
+
+class Prime:
+    def filter(self, list):
+        primes = []
+        self.list = list
+        for x in self.list:
+            p = 0
+            for i in range(1, x):
+                if x % i == 0:
+                    p += 1
+            if p == 1:
+                primes.append(x)
+        return primes
+
+nums = Prime()
+print(nums.filter([1, 3, 5, 6, 7, 10, 113]))
