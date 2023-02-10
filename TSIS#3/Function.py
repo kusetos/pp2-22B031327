@@ -37,7 +37,7 @@ def reversSentence(string):
     words = list(map(str, string.split()))
     words.reverse()
     print(*words, sep=' ')
-reversSentence(")))) sovoskin like I")
+reversSentence(")))) ball more need i")
 reversSentence("казнить , нельзя помиловать")
 # 7
 def has_33(num):
