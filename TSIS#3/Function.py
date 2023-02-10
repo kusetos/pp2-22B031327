@@ -51,15 +51,17 @@ print(has_33([1, 3, 3, 4, 6, 9]))
 print(has_33([1, 2, 3, 4, 5, 6, 3]))
 # 8
 def spy_game(num):
-    if num.count(0) > 1 and num.count(7) > 0:
-        if num.index(0) < num.index(0, num.index(0)+1, len(num)) and num.index(7, -1) > num.index(0, num.index(0)+1, len(num)):
-            return True
-        else:
-            return False
-    else:
-        return False
-
-print(spy_game([0, 0, 7]))
+    tmp = 0
+    flag = 0
+    for i in num:
+        if i == 0:
+            tmp += 1
+        if i == 7 and tmp >= 2:
+            flag = 1
+            break
+    if(flag): return True
+    else: return False
+print(spy_game([0, 3, 7, 5, 0, 7, 0]))
 # 9
 def volume_sphere(r):
     return (4/3)*3.14*r**3
