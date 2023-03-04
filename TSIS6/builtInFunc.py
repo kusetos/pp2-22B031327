@@ -31,7 +31,7 @@ import math
 def rootTimer():
     num = 25100
     milisek = 500
-    time.sleep(500/1000)
+    time.sleep(milisek/1000)
     print(math.sqrt(num))
 rootTimer()
 ### 5
