@@ -33,7 +33,7 @@ def blitRotate2(surf, image, topleft, angle):
     surf.blit(rotated_image, new_rect.topleft)
     pygame.draw.rect(surf, (255, 0, 0), new_rect, 2)
 
-image = pygame.image.load('rightLeg.png')
+image = pygame.image.load('/Users/kuset/Documents/Codes/python/pp2-22B031327/TSIS7/Lab7/clock/rightLeg.png')
 
 """try:
 except:
