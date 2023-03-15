@@ -69,6 +69,7 @@ class Enemy(pg.sprite.Sprite):
         elif self.rect.top < 10000:
             x = 100
             y = 100
+
         self.image = pg.transform.scale(self.image, (x, y))
         self.rect.move_ip(0, speed)
         if self.rect.top > 1000:
@@ -153,11 +154,11 @@ while True:
     for rocket in rockets:
         if shark.rect.collidepoint(rocket.rect.center):
             pg.mixer.music.pause()
-            #pg.mixer.Sound('whopee.mp3').play()
+            pg.mixer.Sound('whopee.mp3').play()
             time.sleep(0.5)
 
             sc.fill((9, 1, 1))
-            #sc.blit(pg.image.load("superScary.jpg"), (00, 0))
+            ssc.blit(pg.image.load("superScary.jpg"), (00, 0))
 
             pg.display.update()
             for entity in group:
