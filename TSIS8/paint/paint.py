@@ -2,7 +2,7 @@ import pygame as pg
 import random
 
 pg.init()
-sc = pg.display.set_mode((1600, 900))
+sc = pg.display.set_mode((1920, 1070))
 pg.display.set_caption("РИСОВАЛКА ОФЛАЙН ИГРА ТВОРЧЕСТВО")
 clock = pg.time.Clock()
 
@@ -95,5 +95,5 @@ while RUN:
     colour_pick()
 
     clear_all()
-    clock.tick(30)
+    clock.tick(244)
     pg.display.update()
