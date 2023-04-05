@@ -162,7 +162,7 @@ while RUN:
             flag = 0
         elif posY > 50 and posX < 50 and posY < 300:
             flag = 2
-
+     #choose of mode
     if flag == 1:
         random_pict()
     elif flag == 0:
