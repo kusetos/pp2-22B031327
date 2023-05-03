@@ -3,7 +3,14 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\TSIS10\db_phones.csv">
+        <entry key="\TSIS10\PhoneBook\db_phones.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\TSIS11\PhoneBook\db_phones.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

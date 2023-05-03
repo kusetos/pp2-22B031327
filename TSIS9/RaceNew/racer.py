@@ -177,7 +177,7 @@ while True:
     for rocket in rockets:
         if shark.rect.collidepoint(rocket.rect.center):
             pg.mixer.music.pause()
-            #pg.mixer.Sound('whopee.mp3').play()
+            pg.mixer.Sound('whopee.mp3').play()
             time.sleep(0.5)
 
             sc.fill((9, 1, 1))

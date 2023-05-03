@@ -233,7 +233,7 @@ chessBG = pg.image.load("pgSnake.png")
 
 
 
-speed = 200
+speed = 150
 
 MAIN_GAME = MAIN()
 Snake = Snake()
@@ -286,4 +286,4 @@ while True:
     speed = 1
     MAIN_GAME.draw_all()
     pg.display.update()
-    clock.tick(300)
+    clock.tick(600)
