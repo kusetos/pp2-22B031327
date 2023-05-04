@@ -8,7 +8,7 @@ from pygame_menu import themes
 pg.init()
 
 print("nickname")
-nickname = input()
+nickname = 'boyyy' #input()
 #face = pg.image.load("face_left.png")
 tail_right = pg.image.load("rainbow_tial.png")
 tail_up = pg.transform.rotate(tail_right, 90)
@@ -46,15 +46,40 @@ class Wall:
         self.respawn()
         #random gen
     def draw_wall(self):
-
-            wall_rect = pg.Rect(int(self.pos.x * cell_size), int(self.pos.y * cell_size), cell_size, cell_size)
+        for i in range(self.walls_number):
+            wall_rect = pg.Rect(int(self.pos[i][0] * cell_size), int(self.pos[i][1] * cell_size), cell_size, cell_size)
             sc.blit(dimond, wall_rect)
     def respawn(self):
 
+        self.walls_number = random.randint(1, 50)
+        self.pos = []
+        x = []
+        y = []
+        #empty_block = []
+        for i in range(self.walls_number):
+            x.append(random.randint(1, cell_number-2))
+            y.append(random.choice([x for x  in range(1, cell_number-2) if x != 9]))      # random.randint(1, cell_number-2) )
+            self.pos.append(pg.math.Vector2(x[len(x)-1], y[len(y)-1]))
 
-        self.x = random.randint(1, cell_number-2)
-        self.y = random.randint(1, cell_number-2)
-        self.pos = pg.math.Vector2(self.x, self.y)
+        for i in range(cell_number-2):
+            for j in range(cell_number-2):
+                empty_rect = pg.math.Vector2(i, j)
+                flag = 0
+                for block in self.pos:
+                    relation = block - empty_rect
+                    if relation == Vector2(0, -1):
+                        flag += 1
+
+                    if relation == Vector2(-1, 0):
+                        flag += 1
+
+                    if relation == Vector2(0, 1):
+                        flag += 1
+
+                    if relation == Vector2(1, 0):
+                        flag += 1
+                if flag > 2:
+                    self.pos.append(pg.math.Vector2(i, j))
 
 
 class Fruit:
@@ -217,6 +242,9 @@ class MAIN():
         for block in self.snake.body[1:]:
             if block == self.fruit.pos:
                 self.fruit.respawn()
+        for block in self.wall.pos:
+            if block == self.fruit.pos:
+                self.fruit.respawn()
 
     def fail_cheker(self):
         if not 0 <= self.snake.body[0].x < cell_number or not 0 <= self.snake.body[0].y < cell_number:
@@ -227,8 +255,9 @@ class MAIN():
             if body == self.snake.body[0]:
                 #self.alive = False
                 self.game_end()
-            if self.snake.body[0] == self.wall.pos:
-                self.game_end()
+            for i in range(self.wall.walls_number):
+                if self.snake.body[0] == self.wall.pos[i]:
+                    self.game_end()
 
 
     def game_end(self):
@@ -241,8 +270,10 @@ class MAIN():
         press_space = normal_font.render("PRESS SPACE TO RESTART", True,(200, 0, 0))
         sc.blit(game_over, (400, 400))
         sc.blit(press_space, (400, 500))
+        self.wall.respawn()
         self.snake.rest()
         menu()
+
 
 
 
@@ -329,26 +360,25 @@ def start_the_game():
         MAIN_GAME.draw_all()
         pg.display.update()
         clock.tick(60)
-        global i
-        i += 1
-        print(i)
+
 
 
 
 
 mainmenu = pg_menu.Menu("Salamaleikum", 1000, 1000, theme=themes.THEME_DARK)
 mainmenu.add.text_input("Name: ", default=nickname, maxchar=20)
+
 mainmenu.add.button('Play', start_the_game)
 mainmenu.add.button('Quit', pg_menu.events.EXIT)
-with open('names', 'r') as file:
-    for line in file:
-        if nickname in line:
-            print("eto basa")
-            break
-        else:
-            with open("names", "a") as file:
-                file.write("\n"+ nickname)
-file.close()
+# with open('names', 'r') as file:
+#     for line in file:
+#         if nickname in line:
+#             print("eto basa")
+#             break
+#         else:
+#             with open("names", "a") as file:
+#                 file.write("\n"+ nickname)
+# file.close()
 
 menu()
 
